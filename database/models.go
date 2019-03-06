@@ -19,6 +19,7 @@ type User struct {
 	Age int64 `datastore:"age"`
 }
 
+// Customizing datastore.Keyloader to slove ErrFieldMismatch.
 func (user *User) Load(properties []datastore.Property) error {
 	for i, p := range properties {
 		if p.Name == "age" {
